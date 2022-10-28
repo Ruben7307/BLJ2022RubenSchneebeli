@@ -1,0 +1,3 @@
+C:/Users/Ruben/CLionProjects/HTMLgenerieren/cmake-build-debug/CMakeFiles/HTMLgenerieren.dir
+C:/Users/Ruben/CLionProjects/HTMLgenerieren/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Ruben/CLionProjects/HTMLgenerieren/cmake-build-debug/CMakeFiles/rebuild_cache.dir
