@@ -1,0 +1,3 @@
+C:/Github/BLJ2022RuSch/C/KW43/AuftragGrosseArrays/cmake-build-debug/CMakeFiles/AuftragGrosseArrays.dir
+C:/Github/BLJ2022RuSch/C/KW43/AuftragGrosseArrays/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Github/BLJ2022RuSch/C/KW43/AuftragGrosseArrays/cmake-build-debug/CMakeFiles/rebuild_cache.dir
