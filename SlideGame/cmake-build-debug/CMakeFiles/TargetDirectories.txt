@@ -1,3 +1,0 @@
-C:/Users/Ruben/CLionProjects/SlideGame/cmake-build-debug/CMakeFiles/SlideGame.dir
-C:/Users/Ruben/CLionProjects/SlideGame/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Ruben/CLionProjects/SlideGame/cmake-build-debug/CMakeFiles/rebuild_cache.dir

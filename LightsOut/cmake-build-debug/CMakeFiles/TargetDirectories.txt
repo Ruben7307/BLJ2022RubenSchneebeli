@@ -1,3 +1,0 @@
-C:/Users/Ruben/CLionProjects/LightsOut/cmake-build-debug/CMakeFiles/LightsOut.dir
-C:/Users/Ruben/CLionProjects/LightsOut/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Ruben/CLionProjects/LightsOut/cmake-build-debug/CMakeFiles/rebuild_cache.dir
