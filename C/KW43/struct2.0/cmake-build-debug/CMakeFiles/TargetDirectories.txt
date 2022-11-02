@@ -1,0 +1,3 @@
+C:/Github/BLJ2022RuSch/C/KW43/struct2.0/cmake-build-debug/CMakeFiles/struct2_0.dir
+C:/Github/BLJ2022RuSch/C/KW43/struct2.0/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Github/BLJ2022RuSch/C/KW43/struct2.0/cmake-build-debug/CMakeFiles/rebuild_cache.dir
