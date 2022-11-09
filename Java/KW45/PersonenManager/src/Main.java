@@ -32,19 +32,19 @@ public class Main{
         Maincharacter.setName(firstName);
         Maincharacter.setAge(age1);
         Maincharacter.setFavouriteColor(favColour);
-        Maincharacter.setBestFriend(bestFriend);
+
 
         BestFriend.setName(bestFriend);
         BestFriend.setSecondName("-");
         BestFriend.setAge(15);
         BestFriend.setFavouriteColor("-");
-        BestFriend.setBestFriend("-");
+        BestFriend.setBestfriend1(new person());
 
-
+        Maincharacter.setBestfriend1(BestFriend);
 
         Maincharacter.presentYourself();
 
-        System.out.println("\n\nDass hier ist dein*e bester Freund*in");
+        System.out.println("\n\nDass hier ist dein bester Freund");
         BestFriend.presentYourself();
 
 

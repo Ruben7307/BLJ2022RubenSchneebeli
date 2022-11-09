@@ -7,17 +7,18 @@ public class person {
     private String secondName;
     private String bestFriend;
 
-    public void presentYourself(){
+    private person bestfriend1;
+
+    public void presentYourself() {
         System.out.println("************************");
-        System.out.println("Vorname: "+ name);
-        System.out.println("Nachname: "+ secondName);
-        System.out.println("Alter: "+ age);
-        System.out.println("Lieblingsfarbe: "+ favouriteColor);
-        System.out.println("Bester freund: "+ bestFriend);
+        System.out.println("Vorname: " + name);
+        System.out.println("Nachname: " + secondName);
+        System.out.println("Alter: " + age);
+        System.out.println("Lieblingsfarbe: " + favouriteColor);
+        System.out.println("Bester freund: " + getBestfriend1().getName());
         System.out.println("************************");
 
     }
-
 
 
     public void setFavouriteColor(String favouriteColor) {
@@ -38,5 +39,17 @@ public class person {
 
     public void setBestFriend(String bestFriend) {
         this.bestFriend = bestFriend;
+    }
+
+    public void setBestfriend1(person bestfriend1) {
+        this.bestfriend1 = bestfriend1;
+    }
+
+    public person getBestfriend1() {
+        return bestfriend1;
+    }
+
+    public String getName() {
+        return name;
     }
 }
