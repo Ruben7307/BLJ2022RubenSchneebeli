@@ -1,0 +1,19 @@
+# ninja log v5
+2	211	6896042456304950	CMakeFiles/LinkedList.dir/main.c.obj	bd24371712e69afc
+214	880	6896042462867184	LinkedList.exe	2265ae56276f9eff
+6	184	6896042624224750	CMakeFiles/LinkedList.dir/main.c.obj	bd24371712e69afc
+185	419	6896042626328489	LinkedList.exe	2265ae56276f9eff
+6	162	6896042727978640	CMakeFiles/LinkedList.dir/main.c.obj	bd24371712e69afc
+164	386	6896042730066787	LinkedList.exe	2265ae56276f9eff
+3	142	6896042972657844	CMakeFiles/LinkedList.dir/main.c.obj	bd24371712e69afc
+143	357	6896042974665712	LinkedList.exe	2265ae56276f9eff
+4	141	6896043089021208	CMakeFiles/LinkedList.dir/main.c.obj	bd24371712e69afc
+142	359	6896043091099972	LinkedList.exe	2265ae56276f9eff
+5	175	6896043504206141	CMakeFiles/LinkedList.dir/main.c.obj	bd24371712e69afc
+177	369	6896043506074925	LinkedList.exe	2265ae56276f9eff
+4	140	6896043659697719	CMakeFiles/LinkedList.dir/main.c.obj	bd24371712e69afc
+141	318	6896043661394461	LinkedList.exe	2265ae56276f9eff
+5	177	6896043870874952	CMakeFiles/LinkedList.dir/main.c.obj	bd24371712e69afc
+177	377	6896043872803423	LinkedList.exe	2265ae56276f9eff
+4	135	6896043938458094	CMakeFiles/LinkedList.dir/main.c.obj	bd24371712e69afc
+136	334	6896043940312049	LinkedList.exe	2265ae56276f9eff
