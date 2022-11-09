@@ -13,7 +13,7 @@ public class Main{
 
         System.out.println("Wie ist dein Nachname?");
         Scanner myObj6 = new Scanner(System.in);
-        String secondName = myObj5.nextLine();
+        String secondName = myObj6.nextLine();
 
         System.out.println("Wie alt bist du?");
         Scanner myObj = new Scanner(System.in);
@@ -25,7 +25,7 @@ public class Main{
 
         System.out.println("Wer ist dein bester Freund");
         Scanner myObj7 = new Scanner(System.in);
-        String bestFriend = myObj1.nextLine();
+        String bestFriend = myObj7.nextLine();
 
 
         Maincharacter.setSecondName(secondName);
@@ -35,9 +35,9 @@ public class Main{
 
 
         BestFriend.setName(bestFriend);
-        BestFriend.setSecondName("-");
+        BestFriend.setSecondName("Tomaselli");
         BestFriend.setAge(15);
-        BestFriend.setFavouriteColor("-");
+        BestFriend.setFavouriteColor("Blau");
         BestFriend.setBestfriend1(new person());
 
         Maincharacter.setBestfriend1(BestFriend);
