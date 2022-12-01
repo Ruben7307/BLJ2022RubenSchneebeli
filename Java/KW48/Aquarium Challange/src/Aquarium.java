@@ -47,7 +47,8 @@ public class Aquarium {
         System.out.println("▓");
         String aquariumAsString = Arrays.deepToString(aquarium);
         aquariumAsString = aquariumAsString.replace("[[", "▓").replace("], [", "▓\n▓").replace(", ", " ").replace("]]",
-                "▓").replace("10", "🟦").replace("0", "🟦").replace("1", "🐠").replace("8", "🟦").replace("3", "🪸").replace("9", "☠");
+                "▓").replace("10", "🟦").replace("0", "🟦").replace("1", "🐠").replace("8", "🟦")
+                              .replace("3", "🪸").replace("9", "☠");
         System.out.println(aquariumAsString);
 
         for (int i = 0; i < 48; i++) {

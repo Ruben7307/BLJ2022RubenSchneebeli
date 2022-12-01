@@ -1,16 +1,22 @@
 
 public class Fish {
     private String name;
+    private String waterType;
+
     private int positionx;
     private int positiony;
 
-    public void createFish(String name, int positionx, int positiony) {
+
+
+    public void createFish(String name,String waterType, int positionx, int positiony) {
         this.name = name;
+        this.waterType = waterType;
         this.positionx = positionx;
         this.positiony = positiony;
     }
-    public Fish(String name, int positionx, int positiony){
+    public Fish(String name,String waterType, int positionx, int positiony){
         this.name = name;
+        this.waterType = waterType;
         this.positionx = positionx;
         this.positiony = positiony;
     }
@@ -19,6 +25,7 @@ public class Fish {
     public void printfish(){
         System.out.println("_________________________________");
         System.out.println("name:"+name);
+        System.out.println("Type:"+waterType);
         System.out.println("position x:"+positionx);
         System.out.println("position y:"+positiony);
         System.out.println("_________________________________");

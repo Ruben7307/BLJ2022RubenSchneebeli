@@ -34,6 +34,8 @@ public class Starter {
             if (userInput == 1) {
                 System.out.println("What is the name of the fish?");
                 String name = sc.nextLine();
+                System.out.println("Wich type of fish is it? (saltwater / sweetwater)");
+                String waterType = sc.nextLine();
                 System.out.println("Where should the fish be?");
                 System.out.print("X position:");
                 int positionx = sc.nextInt();
@@ -41,7 +43,7 @@ public class Starter {
                 System.out.print("Y position:");
                 int positiony = sc.nextInt();
                 sc.nextLine();
-                Fish fish = new Fish(name, positionx, positiony);
+                Fish fish = new Fish(name,waterType, positionx, positiony);
                 fishes.add(fish);
                 aquarium.createFish(positionx, positiony);
 
