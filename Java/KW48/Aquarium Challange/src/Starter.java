@@ -22,6 +22,8 @@ public class Starter {
             System.out.println("[2] - Kill a fish");
             System.out.println("[3] - Move a fish");
             System.out.println("[4] - Show the aquarium");
+            System.out.println("[5] - Clean the aquarium");
+
             System.out.println(" ");
             System.out.println("[0] - exit");
 
@@ -97,6 +99,17 @@ public class Starter {
 
                 aquarium.printAquarium();
 
+
+            }else if(userInput == 5){
+                int [][] array = aquarium.getAquarium();
+                for(int i = 0; i<10; i++){
+                    for(int j = 0; j<30;j++){
+                        if(array[i][j] == 9){
+                            array[i][j]=10;
+                        }
+                    }
+                }
+aquarium.setAquarium(array);
 
             }
 

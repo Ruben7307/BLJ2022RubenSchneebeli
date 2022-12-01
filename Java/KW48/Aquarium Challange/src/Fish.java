@@ -42,4 +42,5 @@ public class Fish {
     public int getPositiony() {
         return positiony;
     }
+
 }
