@@ -3,6 +3,9 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+
+
+
 public class zusatz {
     public static void initPersonArray(Person[] persArr) {
         int i = 0;
@@ -26,8 +29,10 @@ public class zusatz {
         }
     }
     public static void main(String[] args) {
+        String PURPLE_BRIGHT = "\033[0;95m";
+        String RESET = "\033[0m";
 
-        Person[] persArr = new Person[40];
+        Person[] persArr = new Person[42];
         initPersonArray(persArr);
 
         int n = persArr.length;
@@ -56,9 +61,14 @@ public class zusatz {
         }
         String[] month = {"Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"};
 
-        System.out.println("2022 haben Gbeurtstag im");
+        System.out.println("+--------------------------------------+");
+        System.out.println("| Wer hat in welchem Monat geburtstag? |");
+        System.out.println("+--------------------------------------+");
+
         for (int i = 0; i < month.length; i++) {
+            System.out.println(PURPLE_BRIGHT);
             System.out.println("\n" +month[i]);
+            System.out.println(RESET);
             for (int j = 0; j < persArr.length; j++) {
                 if (persArr[j].getMonth() == i + 1) {
                     System.out.println("\t" + persArr[j].getDay() + ". " + persArr[j].getName() + " (" + persArr[j].getAge() + ")");
