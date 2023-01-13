@@ -20,15 +20,29 @@ public class TextFileAnalyzer {
         System.out.println("Number of unique words:\t\t"+fh.filler.size());
         System.out.println("Most common word:\t\t\t'"+fh.line+"'");
         System.out.println("_______________________________________________");
-        System.out.println("");
-        System.out.println("Wich word do you want check:");
-        String userinput = myObj.nextLine();
+        System.out.println(" ");
 
-        for (int i = 0; i < fh.words.size() ; i++) {
-            if(userinput.equals(fh.words.get(i))){
-                count++;
+
+        boolean weiter = true;
+        while (true) {
+            System.out.println("Which word do you want check:");
+            String userinput = myObj.nextLine();
+count = 0;
+            for (int i = 0; i < fh.words.size(); i++) {
+                if (userinput.equals(fh.words.get(i))) {
+                    count++;
+                }
+            }
+            System.out.println(userinput + ":\t\t\t" + count);
+
+            System.out.println("<q> quit    <c> continue");
+            String cont = myObj.nextLine();
+            if (cont.equals("q")){
+                System.out.println("Thanks that you used my programm, have a good day");
+                weiter = false;
+                break;
+
             }
         }
-        System.out.println(userinput+":\t\t\t"+count);
     }
 }
