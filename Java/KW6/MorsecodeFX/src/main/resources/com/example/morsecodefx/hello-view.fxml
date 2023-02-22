@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox alignment="CENTER" prefHeight="478.0" prefWidth="749.0" spacing="20.0" style="-fx-background-color: grey;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="com.example.morsecodefx.HelloController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <Pane prefHeight="540.0" prefWidth="709.0">
+      <children>
+         <TextField fx:id="input" layoutX="16.0" layoutY="61.0" onKeyTyped="#scanner" prefHeight="25.0" prefWidth="675.0" />
+         <TextArea fx:id="output" layoutX="16.0" layoutY="223.0" onKeyTyped="#text" prefHeight="200.0" prefWidth="675.0" style="-fx-background-color: black;" />
+         <Text layoutX="16.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter your Text:">
+            <font>
+               <Font name="Comic Sans MS Bold" size="14.0" />
+            </font>
+         </Text>
+         <Text layoutX="16.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Morse Code:">
+            <font>
+               <Font name="Comic Sans MS Bold" size="14.0" />
+            </font>
+         </Text>
+      </children>
+   </Pane>
+
+    <Label fx:id="welcomeText" />
+</VBox>
