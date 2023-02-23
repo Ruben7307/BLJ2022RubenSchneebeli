@@ -16,8 +16,12 @@ public class Starter {
         arrayList.add(y);
         arrayList.add(c);
 
+        System.out.println("--------------------------------------\n");
+
         for (Media m : arrayList){
             m.printinfo();
+            System.out.println("\n");
+            System.out.println("--------------------------------------");
             System.out.println("\n");
         }
     }
