@@ -12,15 +12,8 @@ import java.awt.event.MouseEvent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-/**
- * This class is responsible for visualising a given coordinate system in a
- * halfway pleasing way.
- *
- * @author surber
- *
- */
-public class CSRenderer extends JPanel {
 
+public class CSRenderer extends JPanel {
     private CoordinateSystem cs;
     private JFrame mainFrame;
 
@@ -71,8 +64,10 @@ public class CSRenderer extends JPanel {
      * @param cs The coordinate system (including all points) to draw.
      */
     public CSRenderer(CoordinateSystem cs) {
-        this(cs, 1, 3);
+        this(cs, 1, 5);
     }
+
+
 
     /**
      * This method gets called automagically once the panel, where the coordinate
@@ -107,10 +102,19 @@ public class CSRenderer extends JPanel {
 
         // all points
         g2d.setStroke(new BasicStroke(pointSize));
+
+
         for (CSPoint point : cs.getAllPoints()) {
             CSPoint translatedPoint = translatePoint(point);
-            g2d.setColor(Color.BLUE);
+            g2d.setColor(Color.magenta);
             g2d.drawLine(translatedPoint.x, translatedPoint.y, translatedPoint.x, translatedPoint.y);
+        }
+        for (CSLineSegment line: cs.getListLines()) {
+
+            CSPoint translatedPoint1 = translatePoint(line.point1);
+            CSPoint translatedPoint2 = translatePoint(line.point2);
+            g2d.setColor(Color.magenta);
+            g2d.drawLine(translatedPoint1.x, translatedPoint1.y, translatedPoint2.x, translatedPoint2.y);
         }
     }
 
