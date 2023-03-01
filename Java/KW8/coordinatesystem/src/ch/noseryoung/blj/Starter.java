@@ -4,9 +4,13 @@ import java.util.ArrayList;
 
 public class Starter {
     public static void main(String[] args) {
-        ArrayList<CSPoint> allpoints = new ArrayList<>();
-        CoordinateSystem cs = new CoordinateSystem(allpoints, 1000);
-        ArrayList<CSLineSegment> lines = cs.getListLines();
+
+        ArrayList<Shape> everything = new ArrayList<>();
+        CoordinateSystem cs = new CoordinateSystem(everything, 1000);
+
+
+
+
 
         CSPoint csPoint = new CSPoint(100, 100);
         CSPoint csPoint1 = new CSPoint(350, 200);
@@ -20,16 +24,16 @@ public class Starter {
         CSLineSegment line1 = new CSLineSegment(csPoint4, csPoint2);
         CSLineSegment line2 = new CSLineSegment(csPoint2, csPoint1);
 
-        allpoints.add(csPoint);
-        allpoints.add(csPoint1);
-        allpoints.add(csPoint2);
-        allpoints.add(csPoint3);
-        allpoints.add(csPoint4);
-        allpoints.add(csPoint5);
+        everything.add(csPoint);
+        everything.add(csPoint1);
+        everything.add(csPoint2);
+        everything.add(csPoint3);
+        everything.add(csPoint4);
+        everything.add(csPoint5);
 
-        lines.add(line);
-        lines.add(line1);
-        lines.add(line2);
+        everything.add(line);
+        everything.add(line1);
+        everything.add(line2);
 
         CSRenderer c = new CSRenderer(cs);
     }

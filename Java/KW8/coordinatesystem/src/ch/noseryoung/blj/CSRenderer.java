@@ -103,6 +103,9 @@ public class CSRenderer extends JPanel {
         // all points
         g2d.setStroke(new BasicStroke(pointSize));
 
+        for (Shape s : cs.getPoints()){
+            s.draw(g2d, cs, fieldScale);
+        }
     }
 
     /**
@@ -126,7 +129,7 @@ public class CSRenderer extends JPanel {
      *               means that the both coordinates must be an exact match.
      */
     private void setupMouseMotionListener(int leeway) {
-        int scaledLeeway = leeway + pointSize / 2;
+        /*int scaledLeeway = leeway + pointSize / 2;
         this.addMouseMotionListener(new MouseAdapter() {
             @Override
             public void mouseMoved(MouseEvent me) {
@@ -139,6 +142,6 @@ public class CSRenderer extends JPanel {
                     }
                 }
             }
-        });
+        });*/
     }
 }
