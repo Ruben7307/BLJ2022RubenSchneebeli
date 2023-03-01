@@ -14,6 +14,8 @@ public class Starter {
         CSPoint csPoint3 = new CSPoint(500, 500);
         CSPoint csPoint4 = new CSPoint(100, 40);
         CSPoint csPoint5 = new CSPoint(-200, -200);
+
+
         CSLineSegment line = new CSLineSegment(csPoint1, csPoint4);
         CSLineSegment line1 = new CSLineSegment(csPoint4, csPoint2);
         CSLineSegment line2 = new CSLineSegment(csPoint2, csPoint1);
