@@ -16,6 +16,6 @@ public class CSLineSegment implements Shape{
         CSPoint translatedPoint1 = translatePoint(cs, fieldscale, this.point1.x, this.point1.y);
         CSPoint translatedPoint2 = translatePoint(cs, fieldscale, this.point2.x, this.point2.y);
         g2d.setColor(Color.magenta);
-        g2d.drawLine(point1.x, point1.y, point2.x, point2.y);
+        g2d.drawLine(translatedPoint1.x, translatedPoint1.y, translatedPoint2.x, translatedPoint2.y);
     }
 }
