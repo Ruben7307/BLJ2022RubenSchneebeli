@@ -6,8 +6,6 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -24,15 +22,6 @@ public class CSRenderer extends JPanel {
     private final int OFFSET_MID;
     private final int OFFSET_END;
 
-    /**
-     * This constructor sets up the window where the coordinate system will be
-     * drawn.
-     *
-     * @param cs         The coordinate system (including all points) to draw.
-     * @param fieldScale The scaling of the coordinate system.
-     * @param pointSize  The size which will determine how large points will appear
-     *                   in the coordinate system.
-     */
     public CSRenderer(CoordinateSystem cs, int fieldScale, int pointSize) {
         this.cs = cs;
         this.size = cs.getCoordinateSystemSize() * fieldScale;
@@ -56,26 +45,10 @@ public class CSRenderer extends JPanel {
         mainFrame.setVisible(true);
     }
 
-    /**
-     * This constructor sets up the window where the coordinate system will be
-     * drawn. Default values of 1 and 3 will be assumed for
-     * {@link CSRenderer#fieldScale} and {@link CSRenderer#pointSize} respectively.
-     *
-     * @param cs The coordinate system (including all points) to draw.
-     */
     public CSRenderer(CoordinateSystem cs) {
-        this(cs, 1, 5);
+        this(cs, 1, 7);
     }
 
-
-
-    /**
-     * This method gets called automagically once the panel, where the coordinate
-     * system will be drawn, becomes visible. Furthermore, the actual drawing
-     * happens in this method as well.
-     *
-     * @param g The Graphics object of this class.
-     */
     @Override
     public void paintComponent(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
@@ -108,26 +81,10 @@ public class CSRenderer extends JPanel {
         }
     }
 
-    /**
-     * This method is responsible for converting a Java Swing absolute position
-     * point (origin at the very top left) to a point of a cartesian coordinate
-     * system.
-     *
-     * @param point The absolute point to convert.
-     * @return The converted point.
-     */
     private CSPoint translatePoint(Point point) {
         return new CSPoint(point.x * fieldScale + size / 2, size / 2 - point.y * fieldScale);
     }
 
-    /**
-     * This method sets up the mouse motion listener, which gets called every time
-     * the mouse was moved inside the window containing the drawn coordinate system.
-     *
-     * @param leeway The deviation that is allowed to exist between the mouse
-     *               coordinate and the coordinate of a drawn point. A leeway of 0
-     *               means that the both coordinates must be an exact match.
-     */
     private void setupMouseMotionListener(int leeway) {
         int scaledLeeway = leeway + pointSize / 2;
         /*this.addMouseMotionListener(new MouseAdapter() {
