@@ -3,6 +3,7 @@ package ch.noseryoung.blj;
 import java.util.ArrayList;
 
 public class Starter {
+    
     public static void main(String[] args) {
 
         ArrayList<Shape> everything = new ArrayList<>();

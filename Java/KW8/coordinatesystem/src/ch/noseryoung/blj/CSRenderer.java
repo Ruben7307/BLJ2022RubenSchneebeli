@@ -129,8 +129,8 @@ public class CSRenderer extends JPanel {
      *               means that the both coordinates must be an exact match.
      */
     private void setupMouseMotionListener(int leeway) {
-        /*int scaledLeeway = leeway + pointSize / 2;
-        this.addMouseMotionListener(new MouseAdapter() {
+        int scaledLeeway = leeway + pointSize / 2;
+        /*this.addMouseMotionListener(new MouseAdapter() {
             @Override
             public void mouseMoved(MouseEvent me) {
                 for (CSPoint point : cs.getAllPoints()) {
