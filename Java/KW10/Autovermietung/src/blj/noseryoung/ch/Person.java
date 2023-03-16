@@ -3,13 +3,13 @@ package blj.noseryoung.ch;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Person {
+public class Person extends VehicleRentalManager{
     private String fullname;
     private LocalDate birthYear;
 
     ArrayList<Person> personenverwaltung = new ArrayList<>();
 
-    public Person(String fullname, LocalDate birthYear) {
+    public Person() {
         this.fullname = fullname;
         this.birthYear = birthYear;
     }

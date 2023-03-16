@@ -1,5 +1,5 @@
 package blj.noseryoung.ch;
 
-public class Contract {
+public class Contract extends Person{
 
 }
