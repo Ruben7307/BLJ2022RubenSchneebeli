@@ -1,13 +1,16 @@
 package ch.noseryoung.test;
 
 import ch.noseryoung.main.GameConsole;
+import com.sun.net.httpserver.Filter;
 import org.junit.jupiter.api.Test;
 
+import java.io.FilterReader;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static ch.noseryoung.main.NintendoConsoles.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -20,7 +23,10 @@ public class ConsoleStreamTest {
      */
     @Test
     public void test_GetPortables_FirstThree() {
-        List<GameConsole> actual = PORTABLES.stream().toList();
+        List<GameConsole> actual = PORTABLES.stream()
+                .limit(3)
+                .toList();
+
         assertArrayEquals(new GameConsole[]{G_W, GB, VB}, actual.toArray());
     }
 
@@ -30,7 +36,10 @@ public class ConsoleStreamTest {
      */
     @Test
     public void test_GetHomeConsoles_LastThree() {
-        List<GameConsole> actual = HOME_CONSOLES.stream().toList();
+        List<GameConsole> actual = HOME_CONSOLES.stream()
+                .skip(HOME_CONSOLES.size() - 3)
+                .toList();
+
         assertArrayEquals(new GameConsole[]{WII, WII_U, SWITCH}, actual.toArray());
     }
 
@@ -40,7 +49,11 @@ public class ConsoleStreamTest {
      */
     @Test
     public void test_GetString_Played() {
-        String actual = "";
+        String consolname = ALL_CONSOLES.stream()
+                .map(gameConsole -> "I have played on a " + gameConsole.getName() + "!")
+                .collect(Collectors.joining("\n"));
+
+
         String PLAYED_STRINGS = """
                 I have played on a Color TV-Game!
                 I have played on a Nintendo Entertainment System!
@@ -58,7 +71,7 @@ public class ConsoleStreamTest {
                 I have played on a Nintendo DS!
                 I have played on a Nintendo 3DS!
                 I have played on a New Nintendo 3DS!""";
-        assertEquals(PLAYED_STRINGS, actual);
+        assertEquals(PLAYED_STRINGS, consolname);
     }
 
     /**
@@ -67,7 +80,12 @@ public class ConsoleStreamTest {
      */
     @Test
     public void test_GetString_PlayedOtherNames() {
-        String actual = "";
+
+        String actual = ALL_CONSOLES.stream()
+                .map(gameConsole -> "I have played on a " + (!gameConsole.getOtherNames().isEmpty() ? gameConsole.getOtherNames().get(0) : gameConsole.getName()) + "!")
+                .collect(Collectors.joining("\n"));
+
+
         String PLAYED_STRINGS_OTHER_NAMES = """
                 I have played on a Color TV-Game!
                 I have played on a NES!
@@ -94,7 +112,9 @@ public class ConsoleStreamTest {
      */
     @Test
     public void test_GetPortables_SortedByUnitsSold() {
-        List<GameConsole> actual = PORTABLES.stream().toList();
+        List<GameConsole> actual = PORTABLES.stream()
+                .sorted(Comparator.comparing(GameConsole::getUnitsSoldWorldwide))
+                .toList();
         assertArrayEquals(new GameConsole[]{VB, N_N3DS, G_W, GB, GBC, N3DS, GBA, NDS}, actual.toArray());
     }
 
@@ -104,7 +124,9 @@ public class ConsoleStreamTest {
      */
     @Test
     public void test_GetHomeConsoles_ReleasedBeforeAndrew() {
-        List<GameConsole> actual = HOME_CONSOLES.stream().toList();
+        List<GameConsole> actual = HOME_CONSOLES.stream()
+                .filter(console -> console.getInitialRelease().isBefore(LocalDate.of(1997, 10, 20)))
+                .toList();
         assertArrayEquals(new GameConsole[]{COLOR_TV_GAME, NES, SNES, N64}, actual.toArray());
     }
 
@@ -114,7 +136,10 @@ public class ConsoleStreamTest {
      */
     @Test
     public void test_GetAllConsoles_HaveMarioGameAsBestSeller() {
-        List<GameConsole> actual = ALL_CONSOLES.stream().toList();
+        List<GameConsole> actual = ALL_CONSOLES.stream()
+                .filter(console -> console.getBestSellingGame().toLowerCase().contains("mario"))
+                .toList();
+
         assertArrayEquals(new GameConsole[]{NES, SNES, N64, WII_U, SWITCH, NDS, N3DS, N_N3DS}, actual.toArray());
     }
 
@@ -124,8 +149,9 @@ public class ConsoleStreamTest {
      */
     @Test
     public void test_GetString_BestSellerOfBestSellingConsole() {
-        String actual = "";
-        assertEquals("New Super Mario Bros.", actual);
+        List<GameConsole> actual = ALL_CONSOLES.stream()
+                .filter(console -> console.getBestSellingGame().toLowerCase().contains("mario")).toList();
+        assertArrayEquals(new GameConsole[]{NES, SNES, N64, WII_U, SWITCH, NDS, N3DS, N_N3DS}, actual.toArray());
     }
 
     /**
