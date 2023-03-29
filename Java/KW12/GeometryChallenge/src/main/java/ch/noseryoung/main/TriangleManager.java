@@ -3,91 +3,75 @@ package ch.noseryoung.main;
 import java.util.ArrayList;
 
 public class TriangleManager {
+    private ShapeSideCreator generator;
+    private TriangleValidator triangleValidator;
+    private ArrayList<Triangle> triangles;
 
-  private ShapeSideCreator generator;
-  private TriangleValidator triangleValidator;
-  private ArrayList<Triangle> triangles;
+    public TriangleManager(ShapeSideCreator generator) {
+        this.generator = generator;
+        triangleValidator = new TriangleValidator();
+        triangles = new ArrayList<>();
+    }
 
-  public TriangleManager(ShapeSideCreator generator) {
-    this.generator = generator;
-    triangleValidator = new TriangleValidator();
-    triangles = new ArrayList<>();
-  }
+    public void run() {
+        printWelcomeText();
+        ArrayList<Triangle> triangles = new ArrayList<Triangle>();
+        for (int i = 0; i < 3; i++) {
+            Triangle triangle = generateTriangle();
+            boolean isEquilateral = triangleValidator.isEquilateral(triangle);
+            boolean isIsosceles = triangleValidator.isIsosceles(triangle);
+            boolean isScalene = triangleValidator.isScalene(triangle);
+            if (isEquilateral || isIsosceles || isScalene) {
+                triangles.add(triangle);
+                printTriangleInfo(triangle, isEquilateral, isIsosceles, isScalene);
+            }
+        }
+    }
 
-  /**
-   * This method is the entry point for the triangle manager.
-   * It creates at least one triangle with the <code>ShapeSideCreator</code> instance
-   * and prints the triangle with its information.
-   */
-  public void run() {
+    private Triangle generateTriangle() {
+        ShapeSideCreator sideCreator = new SideCreatorService();
+        double side1 = sideCreator.createSide();
+        double side2 = sideCreator.createSide();
+        double side3 = sideCreator.createSide();
+        return new Triangle(side1, side2, side3);
+    }
 
-    printWelcomeText();
+    private void printTriangleInfo(Triangle t, boolean isEquilateral, boolean isIsosceles, boolean isScalene) {
+        String triangleType = (triangleValidator.isEquilateral(t) ? "Equilateral" : (triangleValidator.isIsosceles(t) ? "Isoceles" : (triangleValidator.isScalene(t) ? "Scalene" : "Invalid")));
+        System.out.println("*************************************");
+        System.out.println("* Triangle Information *");
+        System.out.println("*************************************");
+        System.out.println("Side 1: " + t.getA() + "\nSide 2: " + t.getB() + "\nSide 3: " + t.getC() + "\nType of triangle: " + triangleType);
+    }
 
-    //todo: create multiple triangles with its validation
+    private TriangleType getTriangleType(boolean isEquilateral, boolean isIsosceles, boolean isScalene) {
+        if (isEquilateral) {
+            return TriangleType.equilateral;
+        } else if (isIsosceles) {
+            return TriangleType.isosceles;
+        } else if (isScalene) {
+            return TriangleType.scalene;
+        } else {
+            return TriangleType.unknown;
+        }
+    }
 
-    Triangle triangle = generateTriangle();
-    boolean isEquilateral = triangleValidator.isEquilateral(triangle);
-    boolean isIsosceles = triangleValidator.isIsosceles(triangle);
-    boolean isScalene = triangleValidator.isScalene(triangle);
+    private enum TriangleType {equilateral, isosceles, scalene, unknown}
 
-    // todo: add a valid Triangle to the triangles list
-    printTriangleInfo(triangle, isEquilateral, isIsosceles, isScalene);
-  }
+    public ArrayList<Triangle> getAllTrianglesSortedByLongestSide() {
+        ArrayList<Triangle> sortedTriangles = new ArrayList<>();
+        for (Triangle triangle : triangles) {
+            double longestSide = triangle.getLongestSide();
+            int i = sortedTriangles.size() - 1;
+            while (i >= 0 && sortedTriangles.get(i).getLongestSide() < longestSide) {
+                i--;
+            }
+            sortedTriangles.add(i + 1, triangle);
+        }
+        return sortedTriangles;
+    }
 
-  /**
-   * This method calls an implementation from the <code>ShapeSideCreator</code> Interface
-   * to get three sides for a new triangle.
-   *
-   * @return created triangle
-   */
-  private Triangle generateTriangle() {
-    return new Triangle(generator.createSide(), generator.createSide(), generator.createSide());
-  }
-
-  /**
-   * This Method prints out the Triangle Information with the result form the validation.
-   *
-   * @param t
-   * @param isEquilateral
-   * @param isIsoceles
-   * @param isScalene
-   */
-  private void printTriangleInfo(Triangle t, boolean isEquilateral, boolean isIsoceles, boolean isScalene) {
-    // todo
-  }
-
-  /**
-   * This method returns out all generated Triangles, which are sorted by side.
-   * The Triangles are compared with its shortest side. The longest "shortest Side" is listed first.
-   *
-   * @return sorted triangle list
-   */
-  public ArrayList<Triangle> getAllTrianglesSortedByShortestSide(){
-    // todo
-    return null;
-  }
-
-  /**
-   * This method returns out all generated Triangles, which are sorted by side.
-   * The Triangles are compared with its longest side. The longest "longest Side" is listed first.
-   *
-   * @return sorted triangle list
-   */
-  public ArrayList<Triangle> getAllTrianglesSortedByLongestSide(){
-    // todo
-    return null;
-  }
-
-  /**
-   * This method prints a welcome text for the triangle manager.
-   */
-  private void printWelcomeText(){
-    // todo
-    System.out.println(" __      __       .__                                  __                            __         .__                     .__                                                             \n" +
-            "/  \\    /  \\ ____ |  |   ____  ____   _____   ____   _/  |_ ____     _____ ___.__. _/  |________|_______    ____   ____ |  |   ____     _____ _____    ____ _____    ____   ___________ \n" +
-            "\\   \\/\\/   _/ __ \\|  | _/ ___\\/  _ \\ /     \\_/ __ \\  \\   __/  _ \\   /     <   |  | \\   __\\_  __ |  \\__  \\  /    \\ / ___\\|  | _/ __ \\   /     \\\\__  \\  /    \\\\__  \\  / ___\\_/ __ \\_  __ \\\n" +
-            " \\        /\\  ___/|  |_\\  \\__(  <_> |  Y Y  \\  ___/   |  |(  <_> ) |  Y Y  \\___  |  |  |  |  | \\|  |/ __ \\|   |  / /_/  |  |_\\  ___/  |  Y Y  \\/ __ \\|   |  \\/ __ \\/ /_/  \\  ___/|  | \\/\n" +
-            "  \\__/\\  /  \\___  |____/\\___  \\____/|__|_|  /\\___  >  |__| \\____/  |__|_|  / ____|  |__|  |__|  |__(____  |___|  \\___  /|____/\\___  > |__|_|  (____  |___|  (____  \\___  / \\___  |__|   \n" +
-            "       \\/       \\/          \\/            \\/     \\/                      \\/\\/                           \\/     \\/_____/           \\/        \\/     \\/     \\/     \\/_____/      \\/       ");
-  }
+    private void printWelcomeText() {
+    System.out.println("Welcome to my Triangle Manager!");
+    }
 }
