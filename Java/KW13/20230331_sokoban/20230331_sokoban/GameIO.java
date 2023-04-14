@@ -59,6 +59,8 @@ public class GameIO extends JFrame {
         if (inputMap.containsKey(e.getKeyCode())) {
           inputMap.get(e.getKeyCode()).run();
           updateOutput();
+
+
         }
       }
     });
