@@ -46,7 +46,7 @@ public class GameIO extends JFrame {
     this.getContentPane().add(new JLabel(new ImageIcon(displayArea)));
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     this.setResizable(false);
-    this.setTitle("Sokoban");
+    this.setTitle("Sokoban by Ruben");
     this.pack();
     this.setLocationRelativeTo(null);
     this.setVisible(true);

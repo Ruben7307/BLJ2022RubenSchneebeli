@@ -233,17 +233,9 @@ public class Game{
         }
         throw new IllegalStateException("The player is nowhere to be found");
     }
-    public boolean pointsContain(Point pToCheck){
-        for(Point p: activatedButtons){
-            if(p.x == pToCheck.x && p.y == pToCheck.y){
-                return true;
-            }
-        }
-        return false;
-    }
+
 
     public void escAction(){
-        System.out.println("ESC");
         Starter.StartProgramm();
     }
 

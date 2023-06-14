@@ -1,0 +1,11 @@
+
+°
+java:S1598"”This file "GameIO.java" should be located in "ch\noseryoung" directory, not in "C:\Github\BLJ2022RuSch\Java\KW13\20230331_sokoban\20230331_sokoban".(Ÿ¿Ö„úÿÿÿÿ
+A
+java:S1948"&Make "game" transient or serializable.(Ä¿–Žøÿÿÿÿ
+C
+java:S1948"-Make "displayArea" transient or serializable.(Êÿ°¨
+E
+java:S1948"*Make "inputMap" transient or serializable.(œàªÊüÿÿÿÿ
+^
+java:S3252/"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(ºÀœx
